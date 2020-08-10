@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+
+int main()
+{
+    int m = 0, n = 0, aux;
+	bool validacao = false;
+	char matriz[10][10];
+	char vetorCaracteres[100];
+	char caracter;
+	int cont = 0;
+	int ocorrencias = 0;
+
+
+	while (!validacao) {
+		printf("Digite um valor entre 1 e 10\n");
+		scanf("%d", &aux);
+		if (aux <= 10 & aux>=1)n = aux;
+		printf("Digite um valor entre 1 e 10\n");
+		scanf("%d", &aux);
+		if (aux <= 10 & aux>=1)m = aux;
+		if (m > 0 & n > 0)validacao = true;
+		getchar();
+	}
+
+	for(int linha = 0; linha < n; linha++){
+	  for(int coluna = 0; coluna < m; coluna++){
+	  printf ("\nElemento[%d][%d] = ", linha, coluna);
+      scanf ("%c", &caracter );
+      matriz[ linha ][ coluna ] = caracter;
+      vetorCaracteres[cont] = caracter;
+      cont++;
+      getchar();
+	 }
+   }
+
+   for(int linha = 0; linha < n; linha++){
+	  for(int coluna = 0; coluna < m; coluna++){
+	  printf ("\nElemento[%d][%d] = %c", linha, coluna, matriz[ linha ][ coluna ]);
+	 }
+   }
+
+   for(int i = 0; i < cont; i++){
+      ocorrencias = 0;
+     for(int j = 0; j < cont; j++){
+        if(vetorCaracteres[i] == vetorCaracteres[j])
+          ocorrencias++;
+      }
+      printf("\nCaracter %c - ocorrências %d", vetorCaracteres[i], ocorrencias);
+   }
+
+   printf("\nDigite a ocorrência para buscar os caracteres.\n");
+    scanf ("%d", &aux );
+
+   for(int i = 0; i < cont; i++){
+      ocorrencias = 0;
+     for(int j = 0; j < cont; j++){
+        if(vetorCaracteres[i] == vetorCaracteres[j])
+          ocorrencias++;
+      }
+      if(ocorrencias == aux)
+      printf("\nCaracter %c - ocorrências %d", vetorCaracteres[i], ocorrencias);
+   }
+
+   return 0;
+}
