@@ -2,7 +2,24 @@
 #include<stdlib.h>
 #include<stdbool.h>
 
-int main()
+
+ float retornarNumeroCaracter(char caracter){
+      float result = 0;
+
+      if(islower(caracter) > 0 ){
+
+         result = caracter * 2;
+         printf("\n Caracter minusculo: %c  de valor  =  %.1f ",caracter, result);
+         return result;
+    }
+     else  {
+        result = caracter / 10;
+         printf("\n Caracter minusculo: %c  de valor  =  %.1f ",caracter, result);
+         return result;
+    }
+ }
+
+ int main(void)
 {
     int m = 0, n = 0, aux;
 	bool validacao = false;
@@ -63,5 +80,8 @@ int main()
       printf("\nCaracter %c - ocorrências %d", vetorCaracteres[i], ocorrencias);
    }
 
+   retornarNumeroCaracter( matriz[ 0 ][ 0 ]);
+
    return 0;
 }
+
