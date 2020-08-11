@@ -50,8 +50,6 @@ int meses = 12;
 float milimetrosChuva = 0;
 float milimetrosCapacidade  = 0;
 float milimetrosGasto = 0;
-int vazio = 0 ;
-int cheio = 1;
 
 int matriz[12][3];
 
@@ -76,6 +74,8 @@ for(int i = 0; i< meses ; i++){
 
  float gasto = 0;
  float chuva = 0;
+ float somaChuva = 0;
+ float somaGasto = 0;
  char*status = "";
  char*mes =  "";
  float disponibilidade = 0;
@@ -83,9 +83,13 @@ for(int i = 0; i< meses ; i++){
  for(int i = 0; i < meses; i++){
          chuva = matriz[i][1];
          gasto = matriz[i][2];
+
+         somaChuva =  chuva + somaChuva;
+         somaGasto = gasto + somaGasto;
+
          mes =  retornarMes(matriz[i][0]);
          disponibilidade = (chuva - gasto);
-         status =  (chuva - gasto) > milimetrosCapacidade  ? "cheio" : (chuva - gasto)  < 0 ? "Vazio" : "Normal";
+         status =  (somaChuva - somaGasto) > milimetrosCapacidade  ? "cheio" : (somaChuva - somaGasto)  < 0 ? "Vazio" : "Normal";
 
         printf("Mês %s | chuva %.1f | gasto %.1f  | disponibilidade %.1f | status %s \n", mes , chuva, gasto, disponibilidade, status);
    }
