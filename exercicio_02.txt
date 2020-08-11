@@ -1,0 +1,93 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+
+char*retornarMes(int mes) {
+
+switch(mes)
+{
+     case 0:
+     return "Janeiro";
+     break;
+     case 1:
+     return "Fevereiro";
+     break;
+     case 2:
+     return "Março";
+     break;
+     case 3:
+     return "Abril";
+     break;
+     case 4:
+     return "Maio";
+     break;
+     case 5:
+     return "Junho";
+     break;
+     case 6:
+     return "Julho";
+     break;
+     case 7:
+     return "Agosto";
+     break;
+     case 8:
+     return "Setembro";
+     break;
+     case 9:
+     return "Outubro";
+     break;
+     case 10:
+     return "Novembro";
+     break;
+     case 11:
+     return "Dezembro";
+     break;
+  }
+}
+void main(){
+
+int meses = 12;
+float milimetrosChuva = 0;
+float milimetrosCapacidade  = 0;
+float milimetrosGasto = 0;
+int vazio = 0 ;
+int cheio = 1;
+
+int matriz[12][3];
+
+printf("Digite o máximo de milimetros de agua que o reservatorio suporta\n");
+scanf("%f", &milimetrosCapacidade);
+getchar();
+for(int i = 0; i< meses ; i++){
+
+ printf("Digite os milimetro de chuvas do mês %d \n", (i+1));
+ scanf("%f", &milimetrosChuva);
+ getchar();
+
+ printf("Digite os milimetros gastos do mês %d \n", (i+1));
+ scanf("%f", &milimetrosGasto);
+
+  matriz[i][0] = i;
+  matriz[i][1] = milimetrosChuva;
+  matriz[i][2] = milimetrosGasto;
+
+  getchar();
+ }
+
+ float gasto = 0;
+ float chuva = 0;
+ char*status = "";
+ char*mes =  "";
+ float disponibilidade = 0;
+
+ for(int i = 0; i < meses; i++){
+         chuva = matriz[i][1];
+         gasto = matriz[i][2];
+         mes =  retornarMes(matriz[i][0]);
+         disponibilidade = (chuva - gasto);
+         status =  (chuva - gasto) > milimetrosCapacidade  ? "cheio" : (chuva - gasto)  < 0 ? "Vazio" : "Normal";
+
+        printf("Mês %s | chuva %.1f | gasto %.1f  | disponibilidade %.1f | status %s \n", mes , chuva, gasto, disponibilidade, status);
+   }
+}
+
