@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+
+ float calcularImpostaRenda(float salario){
+
+   float impostoRenda  = 0;
+
+    if(1637.12 &&  salario <= 2453.50 )
+    return  (salario/100) * 7.5;
+
+    else if(salario >= 2453.51 &&  salario <= 3271.38)
+    return  (salario/100) * 15;
+
+    else if(salario >= 3271.39 &&  salario <= 4087.65)
+    return  (salario/100) * 22.5;
+
+    else if(salario > 4087.65)
+    return  (salario/100) * 27.5;
+
+
+    return 0;
+ }
+
+ int main(void)
+   {
+        char*nome =  "";
+        float salario = 0;
+
+        printf("\n Digite seu nome \n");
+        scanf ("%s", &nome );
+
+        printf("\n Digite seu salario \n");
+        scanf ("%f", &salario );
+        getchar();
+
+         printf("\n Seu imposto de renda será de %f", calcularImpostaRenda(salario));
+
+   }
+
+
