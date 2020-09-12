@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+
+char matriz[8][8];
+
+ void mostrarTabuleiro(){
+   system("cls");
+   printf    ("\n1 – peões \n3 – torres 5 – reis \n0 – ausência de peças \n2 – cavalos \n4 – bispos \n6 – rainhas \n");
+
+   printf    ("\n               TABULEIRO         \n");
+   for(int i = 0; i < 8; i++){
+    printf    ("\n            %d %d %d %d %d %d %d %d",
+                              matriz[ i ][ i ], matriz[ i ][ 1 ],
+                              matriz[ i ][ 2 ], matriz[ i ][ 3 ],
+                              matriz[ i ][ 4 ], matriz[ i ][ 5 ],
+                              matriz[ i ][ 6 ], matriz[ i ][ 7 ]
+                );
+     }
+
+ }
+
+ int main(void)
+{
+
+    for(int linha = 0; linha < 8; linha++){
+        for(int coluna = 0; coluna < 8; coluna++){
+            matriz[ linha ][ coluna ] = 0;
+        }
+    }
+
+   mostrarTabuleiro();
+
+   int peca = 0;
+   int linha = 0;
+   int coluna = 0;
+
+   for(int i = 0; i < 8; i++){
+
+      peca = 0;
+      linha = 0;
+      coluna = 0;
+
+     for(int j = 0; j < 8; j++){
+
+        printf    ("\n Digite a linha! \n");
+        scanf ("%i", &linha );
+        getchar();
+
+        printf    ("\n Digite a coluna! \n");
+        scanf ("%i", &coluna );
+        getchar();
+
+            if( matriz[ linha ][ coluna ] == 0){
+                printf("\n Escolha a peça! \n");
+                scanf ("%i", &peca );
+                matriz[ linha ][ coluna ] = peca;
+                getchar();
+                mostrarTabuleiro();
+                continue;
+
+            }
+
+             printf("\n Ja possui peça nesta posicao, favor escolha outra! \n");
+        }
+
+   }
+
+   return 0;
+}
+
