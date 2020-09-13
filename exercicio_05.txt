@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include <math.h>
+
+void calc_hexa(float lado){
+
+    float perimetro =  lado * 6;
+
+    float area  =  (3 * pow(lado,2)  * sqrt(3) ) / 2;
+
+    printf("Perimetro: %f \nArea: %f \n", perimetro, area);
+
+}
+
+
+void main(){
+
+float lado  =  0;
+
+
+    while(lado  >=  0) {
+
+        printf("\nDigite a dimensão do lado \n");
+        scanf("%f", &lado);
+        getchar();
+        calc_hexa(lado);
+
+    }
+}
+
