@@ -3,29 +3,65 @@
 #include<stdbool.h>
 #include <math.h>
 
-void calc_hexa(float lado){
+typedef struct
+{
+    int x;
+    int y;
+    int ponto_inicial;
+    int ponto_final;
 
-    float perimetro =  lado * 6;
+} ponto2d;
 
-    float area  =  (3 * pow(lado,2)  * sqrt(3) ) / 2;
 
-    printf("Perimetro: %f \nArea: %f \n", perimetro, area);
+float calcularDistancia(ponto2d pontos){
 
+   float calcX = (pontos.x / 1 - pontos.x / 2);
+   float calcY = (pontos.y / 1 - pontos.y / 2);
+
+   return sqrt(pow(calcX, 2) + pow(calcY, 2));
 }
 
 
 void main(){
 
-float lado  =  0;
+int opcao = 1;
+ ponto2d pontos;
 
+    while(opcao != 4) {
 
-    while(lado  >=  0) {
+        printf("\n[1] ‐ Digitar os valores do primeiro ponto \n");
+        printf("\n[2] - Digitar os valores do segundo ponto \n");
+        printf("\n[3] ‐ Mostrar a distância entre os pontos \n");
+        printf("\n[4] ‐ Sair \n");
+        scanf("%i", &opcao);
 
-        printf("\nDigite a dimensão do lado \n");
-        scanf("%f", &lado);
-        getchar();
-        calc_hexa(lado);
+        switch(opcao){
 
+        case 1:
+             printf("\n Digite os valores iniciais \n");
+             scanf("%f", &pontos.ponto_inicial);
+             getchar();
+             scanf("%f", &pontos.x);
+             getchar();
+         break;
+
+        case 2:
+             printf("\n Digite os valores finais \n");
+             scanf("%f", &pontos.ponto_final);
+             getchar();
+             scanf("%f", &pontos.y);
+             getchar();
+         break;
+
+        case 3:
+             printf("\nDistância dos dois pontos : %.1f\n", calcularDistancia(pontos));
+        break;
+
+        default:
+          opcao = 4;
+        break;
+
+        }
     }
 }
 
