@@ -1,0 +1,14 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  float c;
+  
+  cout << "Entre com o valor de Celsius (°C): ";
+  cin >> c;
+  
+  cout << " O valor de fahrenheit é:  " << (c * 1.8 ) + 32 << "\n";
+  return 0;
+}
